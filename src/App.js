@@ -1,8 +1,13 @@
 
 import './App.css';
+import Sidebar from './components/sidebar/Sidebar';
 
 function App() {
-  return <div className='APP'>こんにちは</div>
+  return (
+  <div className='App'>
+  <Sidebar />
+  </div>
+  );
 }
 
 export default App;
