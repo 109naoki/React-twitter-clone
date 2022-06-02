@@ -1,30 +1,32 @@
 import { ChatBubbleOutline, FavoriteBorder, PublicOutlined, Repeat, VerifiedUser } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
-import React from 'react';
+import React, { forwardRef } from 'react';
 import "./Post.css";
 
-function Post() {
+const Post = forwardRef(
+({displayName,username,verified,text,avatar,image},ref)  => {
   return (
-    <div className='post'>
+    <div className='post' ref={ref}>
       <div className='post--avatar'>
-          <Avatar />
+          <Avatar src={avatar}/>
       </div>
 
       <div className='post--body'>
         <div className='post--header'>
           <div className='post--headerText'>
-            <h3>anonymouse
+            <h3>
+              {displayName}
             <span className='post--headerSpecial'>
               <VerifiedUser className="post--badge"/>
-                @Enginner
+                @{username}
             </span>
             </h3>
           </div>
           <div className='post--headerDescription'>
-            <p>Reactなう。</p>
+            <p>{text}</p>
           </div>
         </div>
-        <img src='https://source.unsplash.com/random'/>
+        <img src={image} />
         <div className='post--footer'>
           <ChatBubbleOutline fontSize='small'/>
           <Repeat fontSize='small' />
@@ -35,5 +37,11 @@ function Post() {
     </div>
   )
 }
+
+
+
+)
+
+
 
 export default Post
